@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibiu's Blog</title>
+    <link rel="shortcut icon" href="/static/img/vicon.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/syntax.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hic-blog-nav-items" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Vibiu Rock</a>
+                </div>
+                <div class="collapse navbar-collapse" id="hic-blog-nav-items">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/archive">Archive</a></li>
+                        <li><a href="/categories">Categories</a></li>
+                        <li><a href="/pages">Pages</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero visible-md-block visible-lg-block visible-sm-block">
+            <div class="container-fluid">
+                <h2>{{ article.title }}</h2>
+                <p class="text text-center">11 June 2016</p>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-sm-12 col-md-offset-1 col-lg-offset-1 col-xs-12">
+                <div class="page-header">
+                    <h1>{{ article.title }}</h1>
+                </div>
+                <div class="content" id="content">
+                    {% autoescape None %}
+                    {{ body }}
+                </div>
+                <hr>
+                <ul class="tag_box">
+                    <strong>Categories:</strong>
+                    <li><span class="label label-primary tag"><a href="/categories.html#watir-ref"> {{ article.topic }} <span class="badge" >8</span>
+                        </a>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="tag_box">
+                    <strong>Tags:</strong>
+                    <li><span class="label label-primary tag"><a href="/tags.html#watir-ref"> {{ article.topic }} <span class="badge">8</span></a>
+                        </span>
+                    </li>
+                </ul>
+                <hr>
+                <ul class="pagination">
+                    {% if article.id-1 > 0 %}
+                    <li class="prev"><a href="/article/{{ article.id-1 }}" title="Previous">&larr; Previous</a></li>
+                    {% end %}
+                    <li><a href="/archive">Archive</a></li>
+                    {% if article.id < count %}
+                    <li class="next"><a href="/article/{{ article.id+1 }}" title="Next">Next &rarr;</a></li>
+                    {% end %}
+                </ul>
+                <!-- UY BEGIN -->
+                <div id="uyan_frame"></div>
+                <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2103303"></script>
+                <!-- UY END -->
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p class="text text-center text-muted">&copy; 2016 Vibiu Rock</p>
+        <p class="text text-center text-muted"> Not Powered by <a href="http://www.easonhan.info/" target="_blank">Eason Han</a></p>
+    </footer>
+    <!-- scripts start -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- <script src="/static/js/jquery-1.11.3.min.js"></script> -->
+    <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+</body>
+
+</html>
